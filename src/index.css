@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.fade-in {
+  animation: FadeIn .3s ease-out;
+}
+
+.fade-out {
+  animation: FadeOut .2s ease-out both;
+}
+
+.scale-in {
+  animation: ScaleIn .3s ease-out;
+}
+
+.scale-out {
+  animation: ScaleOut .2s ease-out both;
+}
+
+@keyframes FadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes FadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes ScaleIn {
+  from { opacity: 0; transform: scale(0); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes ScaleOut {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(.2); }
+}
