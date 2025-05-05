@@ -14,9 +14,10 @@ export function PropositionsListRadioType({ propositions }: Props) {
     const newData = data.map((d) => {
       if (d.question_id !== questionId) return d
 
+
       return ({
         question_id: d.question_id,
-        answer_id: isChecked ? answerId : null
+        answer_ids: isChecked ? [answerId] : []
       })
     })
 

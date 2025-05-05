@@ -6,15 +6,7 @@ export type SelectionContextType = {
 }
 
 
-export type Data = { question_id: number } & ( Result | Answer )
-
-type Result = {
-  answer_ids: number[]
-}
-
-type Answer = {
-  answer_id: number | null
-}
+export type Data = { question_id: number; answer_ids: number[] }
 
 export const SelectionContext = createContext<SelectionContextType>({
   data: [],

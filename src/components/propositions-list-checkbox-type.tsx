@@ -14,13 +14,11 @@ export function PropositionsListCheckboxType({ propositions }: Props) {
     const newData = data.map((d) => {
       if (d.question_id !== questionId) return d
 
-      if ('answer_id' in d) throw new Error('Cette fonction doit etre appelee dans un input checkbox')
-
-      const answersId = isChecked ? [...d.answer_ids, answerId] : d.answer_ids.filter((id) => id !== answerId)
+      const array = isChecked ? [...d.answer_ids, answerId] : d.answer_ids.filter((id) => id !== answerId)
 
       return ({
         question_id: d.question_id,
-        answer_ids: answersId
+        answer_ids: array
       })
     })
 
@@ -30,7 +28,6 @@ export function PropositionsListCheckboxType({ propositions }: Props) {
   return (
     <section className="flex flex-col gap-1.5">
       {propositions.map((proposition) => (
-        
         <InputCheckBox
           isChecked={getIsChecked(data, proposition)}
           key={proposition.slug} 

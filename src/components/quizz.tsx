@@ -16,17 +16,8 @@ export function Quizz() {
   const handleSubmit = async () => {
     if (isLoading) return 
 
-    const invalidInputs = selection.filter((s) => {
-      if ('answer_id' in s) {
-        if (s.answer_id == null) return true
+    const invalidInputs = selection.filter((s) => s.answer_ids.length === 0 )
 
-        return false
-      }
-
-      return s.answer_ids.length === 0
-    })
-
-    
     const isValid = invalidInputs.length > 0
 
     if (isValid) return alert('Veuillez repondre a toutes les questions')
@@ -34,7 +25,7 @@ export function Quizz() {
     setIsLoading(true)
 
     // backend request 
-    await new Promise((resolve) => setTimeout(() => resolve('ok'), 1500))
+    await new Promise((resolve) => setTimeout(() => resolve('ok'), 1_700))
 
     setIsLoading(false)
   }
